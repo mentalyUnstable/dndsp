@@ -1,9 +1,0 @@
-#!/usr/bin/expect -f
-spawn git add .
-spawn git commit -m "commit for dndsp"
-spawn git push -u origin master
-expect "Username for 'https://github.com':" 
-send "mentalyUnstable\r"
-expect "Password for 'https://mentalyUnstable@github.com':"
-send "#Cody15948753\r"
-interact
