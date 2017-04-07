@@ -18,6 +18,11 @@ public class MainMenu extends Menu{
     public int display(){
         while(true){
             switch(pdisplay()){
+                case -1:
+                    Util.system("clear","");
+                    System.out.println("Please make a valid selection!");
+                    Util.system("sleep", "3");
+                    break;
                 case 0:
                     return 1;
                 case 1:

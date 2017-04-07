@@ -21,12 +21,25 @@ public class Util{
         }
     }
     
-    public static Integer tryParse(String text) {
+    public static Integer tryParseInt(String text) {
         try {
+            if(!containsOnlyNumbers(text)){
+                return null;
+            }
             return Integer.parseInt(text);
         } catch (NumberFormatException e) {
             return null;
         }
+    }
+    
+    public static boolean containsOnlyNumbers(String s){
+        for(int i = 0; i < s.length(); i++){
+            char c = s.charAt(i);
+            if(!(c=='0' || c=='1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9')){
+                return false;
+            }
+        }
+        return true;
     }
     
     public static void cls(){
