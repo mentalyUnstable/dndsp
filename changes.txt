@@ -6,4 +6,5 @@ v0.1
 	+Added changeLog
 	+Added item system
 	+Added several items
+	+Added documentation to code
 	*Fixed input of characters
