@@ -34,7 +34,7 @@ public class Menu{
                 Command.run(parts);
             }
             else{
-                return Integer.parseInt(in) - 1;
+                return (Util.tryParse(in)==null)?-1:(Util.tryParse(in) - 1);
             }
         }
     }
