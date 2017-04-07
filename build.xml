@@ -1,0 +1,37 @@
+<project>
+    
+    <target name="clean">
+        <delete dir="build/*"/>
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/dndsp.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+        </jar>
+    </target>
+    
+    <target name="build">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false"/>
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/dndsp.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/dndsp.jar" fork="true"/>
+    </target>
+
+</project>
