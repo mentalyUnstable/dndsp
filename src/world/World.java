@@ -134,7 +134,9 @@ public class World{
     /**
      * @author mentalyUnstable/DarkSun
      * @return boolean
-     * @description 
+     * @description places the player in a room if possible
+     * @param int x
+     * @param int y
      */
     public boolean placePlayer(int x, int y){
         if(rooms[y][x].getMeta().enterable){

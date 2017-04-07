@@ -7,13 +7,27 @@ import dndsp.menus.*;
 import java.util.UUID;
 import java.util.LinkedList;
 
+/**
+     * @author mentalyUnstable/DarkSun
+     * @description start of program
+     */
 public class Main{
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return void
+     * @description runs init functions of other classes, sets up the game
+     */
     public static void init(){
         Rand.init();
         Input.init();
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return void
+     * @description starts the game
+     */
     public static void main(String[] args){
         init();
         

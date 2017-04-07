@@ -31,9 +31,7 @@ public class Menu{
      * @author mentalyUnstable/DarkSun
      * @return Menu
      * @description used for testing
-     * @deprecated
      */
-    @Deprecated
     public Menu(){
         options = new LinkedList<String>();
         title = "Menu";
