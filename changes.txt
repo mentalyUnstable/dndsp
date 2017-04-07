@@ -1,8 +1,9 @@
 v0.1
 	+Added simple world generation
-	+Added Rooms
-	+Added Inventories
-	+Added Menus
-	+Added ChangeLog
-	+Added Item system
-	*Fixed Input of characters
+	+Added rooms
+	+Added inventories
+	+Added menus
+	+Added changeLog
+	+Added item system
+	+Added several items
+	*Fixed input of characters
