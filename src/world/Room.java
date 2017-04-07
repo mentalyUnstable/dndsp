@@ -7,8 +7,16 @@ import dndsp.util.Direction;
 
 import java.util.LinkedList;
 
+/**
+     * @author mentalyUnstable/DarkSun
+     * @description a room
+     */
 public class Room{
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @description what type of room is it
+     */
     public enum RoomType{
         FOREST,
         THICK_FOREST,
@@ -17,6 +25,10 @@ public class Room{
         DUNGEON
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @description contains meta data for the room
+     */
     public class RoomMeta{
         
         public RoomMeta(){
@@ -44,50 +56,110 @@ public class Room{
     
     private RoomMeta meta;
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return Room
+     * @description creates a blank room
+     */
     public Room(){
         meta=new RoomMeta();
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return RoomMeta
+     * @description gets the room meta
+     */
     public RoomMeta getMeta(){
         return meta;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return boolean
+     * @description isenterable
+     */
     public boolean isEnterable(){
         return meta.enterable;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return boolean[]
+     * @description gets the list of doors
+     */
     public boolean[] getDoors(){
         return meta.doors;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return Inventory
+     * @description gets the chest that is in the room
+     */
     public Inventory getChest(){
         return meta.chest;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return boolean
+     * @description does the room have a chest
+     */
     public boolean hasChest(){
         return (meta.chest!=null);
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return int
+     * @description gets the column of the room
+     */
     public int getX(){
         return meta.x;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return int
+     * @description gets the row of the room
+     */
     public int getY(){
         return meta.y;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return RoomType
+     * @description gets room type
+     */
     public RoomType getType(){
         return meta.roomType;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return Entity[]
+     * @description gets the npcs in the room
+     */
     public Entity[] getNPCs(){
         return meta.npcs;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return Entity[]
+     * @description gets the hostile entities in the room
+     */
     public Entity[] getMobs(){
         return meta.mobs;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return void
+     * @description sets the players party in this room
+     */
     public void setPlayerParty(LinkedList<Entity> pp){
         meta.playerParty = pp;
         for(Entity e : pp){
@@ -95,14 +167,29 @@ public class Room{
         }
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return LinkedList<Entity>
+     * @description gets the players party
+     */
     public LinkedList<Entity> getPlayerParty(){
         return meta.playerParty;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return boolean
+     * @description does this room contain the player
+     */
     public boolean hasPlayer(){
         return (meta.playerParty!=null);
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return void
+     * @description prints debug info
+     */
     public void printInfo(){
         System.out.println("Room:");
         System.out.println("X: "+meta.x);

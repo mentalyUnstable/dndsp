@@ -2,8 +2,17 @@ package dndsp.util;
 
 import java.lang.Runtime;
 
+/**
+     * @author mentalyUnstable/DarkSun
+     * @description contains utility functions that may be used in many places
+     */
 public class Util{
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return int
+     * @description makes sure and int is between two numbers
+     */
     public static int constrain(int x, int min, int max){
         int val = x;
         if(x < min)
@@ -13,6 +22,13 @@ public class Util{
         return val;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return void
+     * @description runs a system command
+     * @param String command
+     * @param String args args for command
+     */
     public static void system(String command, String args){
         try{
             new ProcessBuilder(command, args).inheritIO().start().waitFor();
@@ -21,6 +37,12 @@ public class Util{
         }
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return Integer parsed int
+     * @description tries to parse an int from a string
+     * @param String text text to parse for int
+     */
     public static Integer tryParseInt(String text) {
         try {
             if(!containsOnlyNumbers(text)){
@@ -32,6 +54,12 @@ public class Util{
         }
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return boolean
+     * @description makes sure a string only has numbers
+     * @param String s
+     */
     public static boolean containsOnlyNumbers(String s){
         if(s.length()==0){
             return false;
@@ -45,6 +73,11 @@ public class Util{
         return true;
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return void
+     * @description clear console screen
+     */
     public static void cls(){
         system("clear","");
     }

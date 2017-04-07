@@ -4,8 +4,17 @@ import java.util.Scanner;
 import java.io.File;
 import java.net.URL;
 
+/**
+     * @author mentalyUnstable/DarkSun
+     * @description Gets an online changelog to show you whats new
+     */
 public class Changelog{
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return void
+     * @description gets an online chengelog to show you whats new
+     */
     public static void display(){
         try {
             Util.cls();

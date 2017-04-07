@@ -1,5 +1,9 @@
 package dndsp.item;
 
+/**
+     * @author mentalyUnstable/DarkSun
+     * @description Contains all normal items in the game
+     */
 public class Items{
     
     public static class Gold extends Item{

@@ -4,6 +4,10 @@ import dndsp.util.Input;
 import dndsp.util.Util;
 import dndsp.util.Changelog;
 
+/**
+     * @author mentalyUnstable/DarkSun
+     * @description The main menu of the game
+     */
 public class MainMenu extends Menu{
     
     public MainMenu(){
@@ -14,6 +18,11 @@ public class MainMenu extends Menu{
         title = "Main Menu";
     }
     
+    /**
+     * @author mentalyUnstable/DarkSun
+     * @return int
+     * @description displays menu and returns the choice users choice. returns -1 if an invalid choice is made
+     */
     @Override
     public int display(){
         while(true){
