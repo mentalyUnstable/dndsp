@@ -33,6 +33,9 @@ public class Util{
     }
     
     public static boolean containsOnlyNumbers(String s){
+        if(s.length()==0){
+            return false;
+        }
         for(int i = 0; i < s.length(); i++){
             char c = s.charAt(i);
             if(!(c=='0' || c=='1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9')){

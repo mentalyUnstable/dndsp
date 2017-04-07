@@ -20,6 +20,7 @@ public class Main{
         MainMenu mm = new MainMenu();
         if(mm.display() == 1){
             World world = new WorldGenerator(30, 100, 0.1, 1.0, 1.0, 1.0).create();
+            world.printMap();
         }
     }
     

@@ -47,7 +47,7 @@ public class Menu{
                 System.out.println("["+(i+1)+"]: "+options.get(i));
             System.out.print(">>>");
             String in = Input.getInput();
-            if(in.charAt(0) == '/'){
+            if(in.length() > 1 &&in.charAt(0) == '/'){
                 String[] parts = (in.substring(1, in.length()-1)).split(" ");
                 Command.run(parts);
             }
