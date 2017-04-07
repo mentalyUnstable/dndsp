@@ -5,3 +5,4 @@ v0.1
 	+Added Menus
 	+Added ChangeLog
 	+Added Item system
+	*Fixed Input of characters
