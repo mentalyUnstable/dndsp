@@ -3,7 +3,7 @@ v0.1
 	+Added rooms
 	+Added inventories
 	+Added menus
-	+Added changeLog
+	+Added change log
 	+Added item system
 	+Added several items
 	+Added documentation to code
