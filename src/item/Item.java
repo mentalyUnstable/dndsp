@@ -60,10 +60,10 @@ public class Item{
     }
     
     /**
-     * @author mentalyUnstable/DarkSun
-     * @return int
-     * @description gets how many are in the stack
-     */
+    * @author mentalyUnstable/DarkSun
+    * @return number of item in the stack
+    * @description gets how many are in the stack
+    */
     public int getCount(){
         return meta.count;
     }

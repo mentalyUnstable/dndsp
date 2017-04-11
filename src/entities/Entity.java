@@ -7,12 +7,13 @@ import java.util.UUID;
 
 /**
  * @author mentalyUnstable/DarkSun
+ * Base for all entities.
 */
 public class Entity{
     
     /**
      * @author mentalyUnstable/DarkSun
-     * @description contains all meta data for the entity class
+     * Contains all meta data for the entity class
      */
     private class EntityMeta{
         public EntityMeta(){
@@ -41,7 +42,7 @@ public class Entity{
     
     /**
      * @author mentalyUnstable/DarkSun
-     * @description prints info the object
+     * Prints info the object
      * @return void
      */
     public void printInfo(){
@@ -51,7 +52,8 @@ public class Entity{
     /**
      * @author mentalyUnstable/DarkSun
      * @returns void
-     * @description sets the current room the entity is in
+     * @param room The room the entities is in
+     * Sets the current room the entity is in
      */
     public void setRoom(Room room){
         meta.room = room;
@@ -59,8 +61,8 @@ public class Entity{
     
     /**
      * @author mentalyUnstable/DarkSun
-     * @description gets the current room the entity is in
      * @returns Room
+     * Gets the current room the entity is in
      */
     public Room getRoom(){
         return meta.room;
