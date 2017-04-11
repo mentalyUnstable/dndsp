@@ -32,10 +32,24 @@ public class Main{
         init();
         
         MainMenu mm = new MainMenu();
-        if(mm.display() == 1){
+        int choice = mm.display();
+        if(choice == 1){
             World world = new WorldGenerator(30, 100, 0.1, 1.0, 1.0, 1.0).create();
             world.printMap();
         }
+        else if(choice == 2){
+            Util.cls();
+            int c = Util.tryParseInt(Input.prompt("Dice Count: "));
+            int s = Util.tryParseInt(Input.prompt("Dice Sides: "));
+            int m = Util.tryParseInt(Input.prompt("Modifier: "));
+            int rc = Util.tryParseInt(Input.prompt("Roll Count: "));
+            for(int i = 0; i < rc; i++){
+                System.out.println(Dice.roll(c,s,m));
+            }
+            System.out.println("\nPress [ENTER] to continue.");
+            Input.getInput();
+        }
+        
     }
     
 }

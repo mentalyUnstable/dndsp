@@ -14,6 +14,7 @@ public class MainMenu extends Menu{
         super();
         options.add("New Game");
         options.add("View Changelog");
+        options.add("Roll Dice");
         options.add("Exit");
         title = "Main Menu";
     }
@@ -38,6 +39,8 @@ public class MainMenu extends Menu{
                     Changelog.display();
                     break;
                 case 2:
+                    return 2;
+                case 3:
                     return 0;
             }
         }
