@@ -10,7 +10,7 @@ public class RoomMenu extends Menu{
      * @param room The room to make a menu for.
      */
     public RoomMenu(Room room){
-        super.title = "Room";
+        super.title = room.getRoomType().getName();
     }
     
 }

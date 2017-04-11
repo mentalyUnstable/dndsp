@@ -18,11 +18,21 @@ public class Room{
      * What type of room is it
      */
     public enum RoomType{
-        FOREST,
-        THICK_FOREST,
-        BUILDING,
-        PLAINS,
-        DUNGEON
+        FOREST("Forest"),
+        THICK_FOREST("Thick Forest"),
+        BUILDING("Building"),
+        PLAINS("Plains"),
+        DUNGEON("Dungeon");
+        
+        private final String name;
+        
+        private RoomType(String name){
+            this.name = name;
+        }
+        
+        public String getName(){
+            return name;
+        }
     }
     
     private boolean[] doors;
@@ -79,6 +89,10 @@ public class Room{
     
     public void setY(int y){
         this.y = y;
+    }
+    
+    public RoomType getRoomType(){
+        return roomType;
     }
     
     /**
