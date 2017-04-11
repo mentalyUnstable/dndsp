@@ -6,7 +6,7 @@ package dndsp.util;
  */
 public class Dice{
     
-    private int c,s,m;
+    public int c,s,m;
     
     /**
      * rolls some dice and returns the sum
@@ -23,15 +23,23 @@ public class Dice{
     }
     
     /**
+     * Rolls some dice and returns the sum
+     * 
      * @author mentalyUnstable/DarkSun
-     * @description rolls some dice and returns the sum
      * @param c number of dice, "count"
      * @param s number of sides on each die
      * @param m modifier to be added
      * @return sum of modifier and rolled dice
      */
     public static int roll(int c, int s, int m){
-        
+        int sum = m;
+        for(int i = 0; i < c; i++)
+            sum += Rand.getInt(1, s);
+        return sum;
+    }
+    
+    public int roll(){
+        return Dice.roll(c,s,m);
     }
     
 }
