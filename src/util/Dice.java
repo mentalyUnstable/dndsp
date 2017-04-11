@@ -23,7 +23,7 @@ public class Dice{
     }
     
     /**
-     * Rolls some dice and returns the sum
+     * Rolls some dice and returns the sum. Rolls <i>c</i>d<i>s</i>+<i>m</i>.
      * 
      * @author mentalyUnstable/DarkSun
      * @param c number of dice, "count"
