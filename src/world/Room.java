@@ -9,13 +9,13 @@ import java.util.LinkedList;
 
 /**
      * @author mentalyUnstable/DarkSun
-     * @description a room
+     * A room in the world.
      */
 public class Room{
     
     /**
      * @author mentalyUnstable/DarkSun
-     * @description what type of room is it
+     * What type of room is it
      */
     public enum RoomType{
         FOREST,
@@ -25,53 +25,31 @@ public class Room{
         DUNGEON
     }
     
-    /**
-     * @author mentalyUnstable/DarkSun
-     * @description contains meta data for the room
-     */
-    public class RoomMeta{
-        
-        public RoomMeta(){
-            doors = new boolean[4];
-            for(int i = 0; i < 4; i++)
-                doors[i] = false;
-            enterable = false;
-            x=y=0;
-            chest = null;
-            npcs=mobs = new Entity[0];
-            playerParty = new LinkedList<Entity>();
-            roomType=RoomType.FOREST;
-        }
-        
-        public boolean[] doors;
-        public boolean enterable;
-        public int x;
-        public int y;
-        public RoomType roomType;
-        public Inventory chest;
-        public Entity[] npcs;
-        public Entity[] mobs;
-        public LinkedList<Entity> playerParty;
-    }
-    
-    private RoomMeta meta;
+    private boolean[] doors;
+    private boolean enterable;
+    private int x;
+    private int y;
+    private RoomType roomType;
+    private Inventory chest;
+    private Entity[] npcs;
+    private Entity[] mobs;
+    private LinkedList<Entity> playerParty;
     
     /**
      * @author mentalyUnstable/DarkSun
      * @return Room
-     * @description creates a blank room
+     * Creates a blank room
      */
     public Room(){
-        meta=new RoomMeta();
-    }
-    
-    /**
-     * @author mentalyUnstable/DarkSun
-     * @return RoomMeta
-     * @description gets the room meta
-     */
-    public RoomMeta getMeta(){
-        return meta;
+        doors = new boolean[4];
+        for(int i = 0; i < 4; i++)
+            doors[i] = false;
+        enterable = false;
+        x=y=0;
+        chest = null;
+        npcs=mobs = new Entity[0];
+        playerParty = new LinkedList<Entity>();
+        roomType=RoomType.FOREST;
     }
     
     /**
@@ -80,7 +58,27 @@ public class Room{
      * @description isenterable
      */
     public boolean isEnterable(){
-        return meta.enterable;
+        return enterable;
+    }
+    
+    public void setIsEnterable(boolean enter){
+        this.enterable = enter;
+    }
+    
+    public void setRoomType(RoomType rt){
+        this.roomType = rt;
+    }
+    
+    public void setDoor(int door, boolean isDoor){
+        this.doors[door] = isDoor;
+    }
+    
+    public void setX(int x){
+        this.x = x;
+    }
+    
+    public void setY(int y){
+        this.y = y;
     }
     
     /**
@@ -89,7 +87,7 @@ public class Room{
      * @description gets the list of doors
      */
     public boolean[] getDoors(){
-        return meta.doors;
+        return doors;
     }
     
     /**
@@ -98,7 +96,7 @@ public class Room{
      * @description gets the chest that is in the room
      */
     public Inventory getChest(){
-        return meta.chest;
+        return chest;
     }
     
     /**
@@ -107,7 +105,7 @@ public class Room{
      * @description does the room have a chest
      */
     public boolean hasChest(){
-        return (meta.chest!=null);
+        return (chest!=null);
     }
     
     /**
@@ -116,7 +114,7 @@ public class Room{
      * @description gets the column of the room
      */
     public int getX(){
-        return meta.x;
+        return x;
     }
     
     /**
@@ -125,7 +123,7 @@ public class Room{
      * @description gets the row of the room
      */
     public int getY(){
-        return meta.y;
+        return y;
     }
     
     /**
@@ -134,7 +132,7 @@ public class Room{
      * @description gets room type
      */
     public RoomType getType(){
-        return meta.roomType;
+        return roomType;
     }
     
     /**
@@ -143,7 +141,7 @@ public class Room{
      * @description gets the npcs in the room
      */
     public Entity[] getNPCs(){
-        return meta.npcs;
+        return npcs;
     }
     
     /**
@@ -152,7 +150,7 @@ public class Room{
      * @description gets the hostile entities in the room
      */
     public Entity[] getMobs(){
-        return meta.mobs;
+        return mobs;
     }
     
     /**
@@ -161,7 +159,7 @@ public class Room{
      * @description sets the players party in this room
      */
     public void setPlayerParty(LinkedList<Entity> pp){
-        meta.playerParty = pp;
+        playerParty = pp;
         for(Entity e : pp){
             e.setRoom(this);
         }
@@ -173,7 +171,7 @@ public class Room{
      * @description gets the players party
      */
     public LinkedList<Entity> getPlayerParty(){
-        return meta.playerParty;
+        return playerParty;
     }
     
     /**
@@ -182,7 +180,7 @@ public class Room{
      * @description does this room contain the player
      */
     public boolean hasPlayer(){
-        return (meta.playerParty!=null);
+        return (playerParty!=null);
     }
     
     /**
@@ -192,24 +190,24 @@ public class Room{
      */
     public void printInfo(){
         System.out.println("Room:");
-        System.out.println("X: "+meta.x);
-        System.out.println("Y: "+meta.y);
-        System.out.println("Type: "+meta.roomType);
-        System.out.println("Enterable: "+meta.enterable);
+        System.out.println("X: "+x);
+        System.out.println("Y: "+y);
+        System.out.println("Type: "+roomType);
+        System.out.println("Enterable: "+enterable);
         System.out.println("Doors:");
         for(int d : Direction.DIRECTIONS)
-            System.out.println("\t"+d+": "+meta.doors[d]);
+            System.out.println("\t"+d+": "+doors[d]);
         System.out.println("NPCs:\n");
-        for(Entity e : meta.npcs)
+        for(Entity e : npcs)
             e.printInfo();
         System.out.println("Mobs:\n");
-        for(Entity e : meta.mobs)
+        for(Entity e : mobs)
             e.printInfo();
         System.out.println("Player Party:\n");
-        for(Entity e : meta.playerParty)
+        for(Entity e : playerParty)
             e.printInfo();
-        System.out.println("Chest: "+(meta.chest!=null));
-        if(meta.chest!=null)
-            meta.chest.printInfo();
+        System.out.println("Chest: "+(chest!=null));
+        if(chest!=null)
+            chest.printInfo();
     }
 }

@@ -73,11 +73,10 @@ public class WorldGenerator{
      */
     private Room setDoors(Room room, Room[] around){
         Room r = room;
-        Room.RoomMeta rm = r.getMeta();
         
         for(int d : Direction.DIRECTIONS){
-            if(around[d].getMeta().enterable)
-                rm.doors[d] = true;
+            if(around[d].isEnterable())
+                r.setDoor(d, true);
         }
         
         return r;
@@ -90,22 +89,21 @@ public class WorldGenerator{
      */
     private Room createRoom(int x, int y){
         Room r = new Room();
-        Room.RoomMeta rm = r.getMeta();
         
-        rm.x = x;
-        rm.y = y;
+        r.setX(x);
+        r.setY(y);
         
         if(x == 0 || y == 0 || x == (cols-1) || y == (rows-1)){
-            rm.enterable = false;
-            rm.roomType = Room.RoomType.THICK_FOREST;
+            r.setIsEnterable(false);
+            r.setRoomType(Room.RoomType.THICK_FOREST);
         }
         else if(noise<=Rand.getDouble()){
-            rm.enterable = true;
-            rm.roomType = Room.RoomType.PLAINS;
+            r.setIsEnterable(true);
+            r.setRoomType(Room.RoomType.PLAINS);
         }
         else{
-            rm.enterable = false;
-            rm.roomType = Room.RoomType.THICK_FOREST;
+            r.setIsEnterable(false);
+            r.setRoomType(Room.RoomType.THICK_FOREST);
         }
         
         return r;

@@ -86,7 +86,7 @@ public class World{
         Util.cls();
         for(Room[] r : rooms){
             for(Room room : r){
-                if(room.getMeta().enterable){
+                if(room.isEnterable()){
                     System.out.print(" ");
                 }
                 else{
@@ -139,7 +139,7 @@ public class World{
      * @param int y
      */
     public boolean placePlayer(int x, int y){
-        if(rooms[y][x].getMeta().enterable){
+        if(rooms[y][x].isEnterable()){
             rooms[y][x].setPlayerParty(playerParty);
             return true;
         }
